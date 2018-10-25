@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="scriptfile.js"></script>
+</head>
+<body ng-app="mongo" ng-controller="mongoController">
+<div class="text-center">
+    <button class="btn btn-primary" data-toggle="modal" data-target="#register">Register</button><br/><br/>
+    <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                
+                        <label><strong>Class Id :</strong></label><input type="number" ng-model="form.classid"><br/><br/>
+                        <label><strong>Name :</strong></label><input type="text" ng-model="form.name"><br/><br/>
+                        <label><strong>Course Of Study :</strong></label><input type="text" ng-model="form.cos"><br/><br/>
+                        <label><strong>Major :</strong></label><input type="text" ng-model="form.major"><br/><br/>
+                        <label><strong>Minor :</strong></label><input type="text" ng-model="form.minor"><br/><br/>
+                </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" ng-click="submit()">Register</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button  ng-click='list()' class="btn btn-primary" data-toggle="modal" data-target="#list"> List </button><br/><br/>
+      <div class="modal fade" id="list" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Users</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                   <table>
+                       <tr>
+                           <th><label>Name </label></th>
+                           <th><label>Class Id </label></th>
+                           <th><label>Course </label></th>
+                           <th><label>Major </label></th>
+                           <th><label>Minor </label></th>
+                       </tr>
+                       <tr ng-repeat="x in listData">
+                           <td>{{x.name}}</td>
+                           <td>{{x.classid}}</td>
+                           <td>{{x.cos}}</td>
+                           <td>{{x.major}}</td>
+                           <td>{{x.minor}}</td>
+                       </tr>
+                       </table>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" ng-click="list">List</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    <button   class="btn btn-primary" data-toggle="modal" data-target="#search">Search</button>
+ <div class="modal fade" id="search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                   <input ng-model="searchTerm" type="text" placeholder="Major" >
+                   <div id="searchResult" style="display:none;">
+                    <table>
+                      <tr>
+                          <th><label>Name </label></th>
+                          <th><label>Class Id </label></th>
+                          <th><label>Course </label></th>
+                          <th><label>Major </label></th>
+                          <th><label>Minor </label></th>
+                      </tr>
+                      <tr ng-repeat="x in message">
+                          <td>{{x.name}}</td>
+                          <td>{{x.classid}}</td>
+                          <td>{{x.cos}}</td>
+                          <td>{{x.major}}</td>
+                          <td>{{x.minor}}</td>
+                      </tr>
+                      </table>
+                   </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" ng-click=search()>Search</button>
+                </div>
+              </div>
+            </div>
+          </div>
+</div>
+</body>
+</html>
