@@ -1,0 +1,28 @@
+<html>
+<head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="controller.js"></script>
+    <title>Welcome Page</title>
+</head>    
+<body ng-app="searchEngine" ng-controller="searchEngineController">
+    <div class="text-center" style='margin-top:50px;'>
+    <input type="search" ng-model="searchTerm">
+    <button ng-click="search()">Search</button>
+    </div>
+    <br/><hr>
+    <div class="container">
+        <div class="row list-group">
+        <table>
+            <tr ng-repeat="x in results">
+            <td class="col-sm-5 card" ><img src="{{x.thumbnailImage}}"><br/> <br/><label>NAME :</label> {{x.name}}<br/> <br/><label>PRICE:</label> {{x.salePrice}}<br/><br/></td>
+            </tr>
+        </table>
+            </div>
+    </div>
+</body>
+
+</html>
