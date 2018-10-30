@@ -1,7 +1,9 @@
+var port= process.env.PORT||3000;
+var path= require('path');
 var express= require('express');
 var app=express();
 var http = require('http');
-app.use(express.static(__dirname+'/home'));
+app.use(express.static(path.join(__dirname,'home')));
 var Request = require("request");
  app.get("/getDetails", (req, res, next) => {
      console.log("hi");
@@ -14,4 +16,4 @@ var Request = require("request");
         res.send(JSON.parse(body));
     });
 });
-app.listen(3000);
+app.listen(port);

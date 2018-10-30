@@ -3,7 +3,7 @@ searchapp.controller("searchEngineController",function($scope,$http){
     $scope.search=function(){
         $http({
             method: 'GET',
-            url:'http://localhost:3000/getDetails?searchTerm='+$scope.searchTerm
+            url:'https://dry-fortress-84708.herokuapp.com/getDetails?searchTerm='+$scope.searchTerm
             
         }).then(function successCallBack(response){
             console.log(response);
